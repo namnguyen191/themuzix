@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": "client"
+    },
+    {
+      "path": "common"
+    },
+    {
+      "path": "server"
+    }
+  ],
+  "settings": {
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 30000,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  }
+}

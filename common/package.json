@@ -1,0 +1,11 @@
+{
+  "name": "@themuzix/common",
+  "version": "1.0.0",
+  "description": "Shared codes for The Muzix Webapp",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nam Nguyen",
+  "license": "ISC"
+}

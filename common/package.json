@@ -2,10 +2,17 @@
   "name": "@themuzix/common",
   "version": "1.0.0",
   "description": "Shared codes for The Muzix Webapp",
-  "main": "index.ts",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "files": [
+    "build/**/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "author": "Nam Nguyen",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
 }

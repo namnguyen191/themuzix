@@ -8,6 +8,9 @@
     },
     {
       "path": "server"
+    },
+    {
+      "path": "docker-containers"
     }
   ],
   "settings": {
@@ -17,6 +20,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
-    }
+    },
   }
 }

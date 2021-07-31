@@ -21,5 +21,6 @@
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     },
+    "vsicons.presets.angular": true,
   }
 }

@@ -1,18 +1,19 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { CreateSongDto } from './dto/create-song.dto';
+import { GetSongsFilteredDto } from './dto/get-songs-filtered.dto';
 import { Song } from './song.entity';
 import { SongsService } from './songs.service';
 
-@Controller('songs')
+@Controller('api/songs')
 export class SongsController {
   constructor(private songsService: SongsService) {}
 
-  // @Get()
-  // getAllSongs(@Query() query: GetSongsFilteredDto): Song[] {
-  //   const songs = this.songsService.getAllSongs(query);
+  @Get()
+  getAllSongs(@Query() query: GetSongsFilteredDto): Promise<Song[]> {
+    const songs = this.songsService.getAllSongs(query);
 
-  //   return songs;
-  // }
+    return songs;
+  }
 
   @Get('/:id')
   getSongById(@Param() params: { id: string }): Promise<Song> {

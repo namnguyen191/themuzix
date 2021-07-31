@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateSongDto } from './dto/create-song.dto';
+import { GetSongsFilteredDto } from './dto/get-songs-filtered.dto';
 import { Song } from './song.entity';
 import { SongsRepository } from './songs.repository';
 
@@ -10,17 +11,9 @@ export class SongsService {
     @InjectRepository(SongsRepository) private songsRepository: SongsRepository,
   ) {}
   // private songs: Song[] = [];
-  // getAllSongs(filter: GetSongsFilteredDto) {
-  //   const { title, genres } = filter;
-  //   let foundSongs: Song[] = [...this.songs];
-  //   if (title) {
-  //     foundSongs = foundSongs.filter((sng) => sng.title.includes(title));
-  //   }
-  //   if (genres) {
-  //     foundSongs = foundSongs.filter((sng) => sng.genres === genres);
-  //   }
-  //   return foundSongs;
-  // }
+  getAllSongs(filter: GetSongsFilteredDto) {
+    return this.songsRepository.getSongs(filter);
+  }
 
   /**
    * Retrieve a song from the database by id

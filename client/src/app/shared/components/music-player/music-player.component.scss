@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700&display=swap");
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Spartan, sans-serif;
+  height: 500px;
+  width: 400px;
+  background-color: hsl(0, 0%, 91%);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px 5px hsla(0, 0%, 0%, 0.3);
+  gap: 20px;
+  padding-bottom: 20px;
+
+  h2,
+  h3 {
+    width: 95%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .img-container {
+    height: 300px;
+    width: 250px;
+    transform: translateY(-25%);
+    margin-bottom: -50px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 5px 30px 5px hsla(0, 0%, 0%, 0.5);
+    }
+  }
+
+  .progress-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+
+    .duration-wrapper {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+
+      .current-time {
+      }
+
+      .duration {
+      }
+    }
+
+    .progress {
+      width: 95%;
+      height: 5px;
+      background-color: #fff;
+      position: relative;
+      border-radius: 3px;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 75%;
+        height: 100%;
+        background-color: hsla(0, 0%, 0%, 0.8);
+      }
+    }
+  }
+
+  .controls-container {
+    .fas {
+      font-size: 30px;
+      margin: 0 10px;
+      color: hsla(0, 0%, 40%, 1);
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  :host {
+    width: 95vw;
+  }
+}

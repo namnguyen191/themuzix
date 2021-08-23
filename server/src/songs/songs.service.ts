@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { User } from 'src/auth/user.entity';
 import { CreateSongDto } from './dto/create-song.dto';
 import { GetSongsFilteredDto } from './dto/get-songs-filtered.dto';
 import { Song } from './song.entity';
@@ -11,8 +12,8 @@ export class SongsService {
     @InjectRepository(SongsRepository) private songsRepository: SongsRepository,
   ) {}
   // private songs: Song[] = [];
-  getAllSongs(filter: GetSongsFilteredDto) {
-    return this.songsRepository.getSongs(filter);
+  getAllSongs(filter: GetSongsFilteredDto, user: User) {
+    return this.songsRepository.getSongs(filter, user);
   }
 
   /**
@@ -20,8 +21,11 @@ export class SongsService {
    * @param id The unique id of the song
    * @returns the song with all it fields or an error if there's no song with the matching id
    */
-  async getSongById(id: string): Promise<Song> {
-    const foundSong = await this.songsRepository.findOne(id);
+  async getSongById(id: string, user: User): Promise<Song> {
+    // const foundSong = await this.songsRepository.findOne(id);
+    const foundSong = await this.songsRepository.findOne({
+      where: { id, user },
+    });
 
     if (!foundSong) {
       throw new NotFoundException(`Song with id ${id} could not be found`);
@@ -30,8 +34,8 @@ export class SongsService {
     return foundSong;
   }
 
-  createSong(createSongDto: CreateSongDto): Promise<Song> {
-    return this.songsRepository.createSong(createSongDto);
+  createSong(createSongDto: CreateSongDto, user: User): Promise<Song> {
+    return this.songsRepository.createSong(createSongDto, user);
   }
 
   // /**
